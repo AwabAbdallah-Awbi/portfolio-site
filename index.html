@@ -1,29 +1,36 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أواب | مبرمج بايثون</title>
+    <title data-i18n="pageTitle">Awab | Python Programmer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Language Toggle Floating Top Bar -->
+    <nav class="nav-bar container">
+        <button id="lang-toggle" class="btn btn-lang" aria-label="Toggle language">
+            <span id="lang-label">عربي</span>
+        </button>
+    </nav>
+
     <!-- Header / Hero Section -->
     <header class="hero">
         <div class="container hero-content">
-            <div class="profile-avatar">أ</div>
-            <h1 class="name">أواب</h1>
-            <p class="tagline">مبرمج بايثون | ببني أدوات عملية</p>
+            <div class="profile-avatar" data-i18n="avatar">A</div>
+            <h1 class="name" data-i18n="name">Awab</h1>
+            <p class="tagline" data-i18n="tagline">Python Programmer | Build practical tools</p>
         </div>
     </header>
 
     <!-- Projects Section -->
     <section class="section" id="projects">
         <div class="container">
-            <h2 class="section-title">مشاريعي</h2>
+            <h2 class="section-title" data-i18n="projectsTitle">My Projects</h2>
 
             <div class="projects-grid">
-                <!-- مشروع 1: حاسبة أواب -->
+                <!-- Project 1: OAP Calculator -->
                 <article class="project-card">
                     <div class="project-header">
                         <div class="project-icon">
@@ -34,31 +41,14 @@
                                 <path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"></path>
                             </svg>
                         </div>
-                        <h3 class="project-title">حاسبة أواب</h3>
+                        <h3 class="project-title" data-i18n="calcTitle">OAP Calculator</h3>
                     </div>
-                    <p class="project-desc">آلة حاسبة سطح مكتب مبنية ببايثون، مع أيقونة مخصصة.</p>
+                    <p class="project-desc" data-i18n="calcDesc">Desktop calculator built in Python, with custom icon.</p>
                     <div class="project-actions">
-                        <a href="#" class="btn btn-primary btn-download" data-project="حاسبة أواب">تحميل المشروع</a>
-                        <button class="btn btn-secondary btn-details" data-modal="modal-calculator">عرض التفاصيل</button>
+                        <a href="#" class="btn btn-primary btn-download" data-project="OAP Calculator" data-i18n="downloadBtn">Download Project</a>
+                        <button class="btn btn-secondary btn-details" data-modal="modal-calculator" data-i18n="detailsBtn">View Details</button>
                     </div>
                 </article>
-
-                <!-- 
-                =======================================================
-                إضافة مشروع جديد: يمكنك نسخ هذا الهيكل ولصقه هنا لإضافة مشروع آخر
-                =======================================================
-                <article class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">⚡</div>
-                        <h3 class="project-title">اسم المشروع الجديد</h3>
-                    </div>
-                    <p class="project-desc">وصف المشروع هنا...</p>
-                    <div class="project-actions">
-                        <a href="#" class="btn btn-primary">تحميل المشروع</a>
-                        <button class="btn btn-secondary">عرض التفاصيل</button>
-                    </div>
-                </article>
-                -->
             </div>
         </div>
     </section>
@@ -66,19 +56,19 @@
     <!-- Contact Section -->
     <section class="section" id="contact">
         <div class="container">
-            <h2 class="section-title">تواصل معي</h2>
+            <h2 class="section-title" data-i18n="contactTitle">Contact Me</h2>
             <div class="contact-links">
                 <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="contact-btn whatsapp">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
                     </svg>
-                    واتساب
+                    <span>WhatsApp</span>
                 </a>
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-btn github">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                     </svg>
-                    GitHub
+                    <span>GitHub</span>
                 </a>
             </div>
         </div>
@@ -86,7 +76,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; <span id="year"></span> أواب. جميع الحقوق محفوظة.</p>
+        <p>&copy; <span id="year"></span> <span data-i18n="footerText">Awab. All rights reserved.</span></p>
     </footer>
 
     <!-- Details Modal -->
@@ -94,12 +84,12 @@
         <div class="modal-overlay" data-close></div>
         <div class="modal-content">
             <button class="modal-close" data-close>&times;</button>
-            <h3>تفاصيل: حاسبة أواب</h3>
-            <p>برنامج حاسبة مكتبي خفيف وسريع تم تطويره بلغة بايثون واجهة مستخدم رسومية (GUI) مع تصاميم وأيقونة مخصصة.</p>
+            <h3 data-i18n="modalTitle">Details: OAP Calculator</h3>
+            <p data-i18n="modalDesc">A lightweight, fast desktop calculator app developed using Python GUI with custom UI and icons.</p>
             <ul class="details-list">
-                <li><strong>اللغة:</strong> Python</li>
-                <li><strong>الواجهة:</strong> Tkinter / CustomTkinter</li>
-                <li><strong>المميزات:</strong> تصميم مظلم، أيقونة مخصصة، سرعة استجابة</li>
+                <li><strong data-i18n="langLabel">Language:</strong> Python</li>
+                <li><strong data-i18n="uiLabel">GUI Framework:</strong> Tkinter / CustomTkinter</li>
+                <li><strong data-i18n="featuresLabel">Features:</strong> <span data-i18n="featuresVal">Dark theme, custom icon, responsive performance</span></li>
             </ul>
         </div>
     </div>
