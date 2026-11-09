@@ -354,7 +354,7 @@ body {
 
 /* Interactive Calculator Styling */
 .calc-modal-content {
-    max-width: 340px;
+    max-width: 480px;
 }
 
 .calc-app {
@@ -382,7 +382,7 @@ body {
 
 .calc-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 8px;
 }
 
@@ -416,13 +416,11 @@ body {
 }
 
 .calc-btn-equals {
-    grid-row: span 2;
-    height: 100%;
     background: var(--primary-gradient);
 }
 
 .calc-btn-zero {
-    grid-column: span 2;
+    grid-column: span 1;
 }
 
 /* Footer */

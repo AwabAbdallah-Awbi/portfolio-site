@@ -180,10 +180,38 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         currentInput = '0';
                     }
+                } else if (action === 'sqrt') {
+                    try {
+                        const val = parseFloat(currentInput);
+                        currentInput = String(Math.sqrt(val));
+                    } catch { currentInput = 'Error'; }
+                    shouldResetDisplay = true;
+                } else if (action === 'sin') {
+                    try {
+                        const val = parseFloat(currentInput);
+                        currentInput = String(Math.sin(val * (Math.PI / 180)));
+                    } catch { currentInput = 'Error'; }
+                    shouldResetDisplay = true;
+                } else if (action === 'cos') {
+                    try {
+                        const val = parseFloat(currentInput);
+                        currentInput = String(Math.cos(val * (Math.PI / 180)));
+                    } catch { currentInput = 'Error'; }
+                    shouldResetDisplay = true;
+                } else if (action === 'tan') {
+                    try {
+                        const val = parseFloat(currentInput);
+                        currentInput = String(Math.tan(val * (Math.PI / 180)));
+                    } catch { currentInput = 'Error'; }
+                    shouldResetDisplay = true;
                 } else if (action === 'calculate') {
                     try {
-                        // Replace display symbols if any with JavaScript math operators
-                        const expression = currentInput.replace(/×/g, '*').replace(/÷/g, '/');
+                        // Replace display symbols with JS math operators
+                        let expression = currentInput
+                            .replace(/×/g, '*')
+                            .replace(/÷/g, '/')
+                            .replace(/π/g, 'Math.PI')
+                            .replace(/\^/g, '**');
                         // Evaluate expression safely
                         const result = Function(`'use strict'; return (${expression})`)();
                         currentInput = String(Number.isFinite(result) ? result : 'Error');
