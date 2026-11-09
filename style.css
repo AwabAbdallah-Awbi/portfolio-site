@@ -108,6 +108,17 @@ body {
     display: inline-block;
 }
 
+.project-category {
+    margin-bottom: 40px;
+}
+
+.subsection-title {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
 .section-title::after {
     content: '';
     position: absolute;
@@ -320,6 +331,98 @@ body {
 
 .details-list strong {
     color: var(--text-main);
+}
+
+/* Video Container & Paid Card */
+.video-container {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container video {
+    width: 100%;
+    display: block;
+    max-height: 250px;
+}
+
+.whatsapp-order-btn {
+    width: 100%;
+}
+
+/* Interactive Calculator Styling */
+.calc-modal-content {
+    max-width: 340px;
+}
+
+.calc-app {
+    margin-top: 15px;
+    background: #151d2a;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.calc-display {
+    width: 100%;
+    height: 50px;
+    background: #0b111e;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: right;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    font-family: monospace;
+    outline: none;
+}
+
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.calc-btn {
+    height: 48px;
+    background: var(--bg-card-hover);
+    color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.calc-btn:hover {
+    background: #475569;
+}
+
+.calc-btn:active {
+    transform: scale(0.95);
+}
+
+.calc-btn-op {
+    background: rgba(99, 102, 241, 0.2);
+    color: #a855f7;
+}
+
+.calc-btn-op:hover {
+    background: rgba(99, 102, 241, 0.4);
+}
+
+.calc-btn-equals {
+    grid-row: span 2;
+    height: 100%;
+    background: var(--primary-gradient);
+}
+
+.calc-btn-zero {
+    grid-column: span 2;
 }
 
 /* Footer */

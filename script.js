@@ -13,10 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Awab",
             tagline: "Python Programmer | Build practical tools",
             projectsTitle: "My Projects",
+            freeProjectsTitle: "Free Projects",
+            paidProjectsTitle: "Projects for Sale",
             calcTitle: "OAP Calc",
             calcDesc: "Smart Calculator built in Python.",
-            downloadBtn: "Download Project",
+            downloadBtn: "Free Download",
+            tryOnlineBtn: "Try Online",
             detailsBtn: "View Details",
+            paidProjectTitle: "Custom Desktop Application",
+            paidProjectDesc: "High-performance Python application with sleek UI, database integration, and automated workflows.",
+            orderWhatsappBtn: "Order Full Version - WhatsApp",
             contactTitle: "Contact Me",
             footerText: "Awab. All rights reserved.",
             modalTitle: "Details: OAP Calc",
@@ -25,7 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
             uiLabel: "GUI Framework:",
             featuresLabel: "Features:",
             featuresVal: "Dark theme, custom icon, responsive performance",
-            downloadMsg: "Preparing download link for "
+            downloadMsg: "Preparing download link for ",
+            calcModalTitle: "OAP Calc Online"
         },
         ar: {
             pageTitle: "أواب | مبرمج بايثون",
@@ -33,10 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "أواب",
             tagline: "مبرمج بايثون | ببني أدوات عملية",
             projectsTitle: "مشاريعي",
+            freeProjectsTitle: "مشاريع مجانية",
+            paidProjectsTitle: "مشاريع للبيع",
             calcTitle: "OAP Calc",
             calcDesc: "حاسبة ذكية مبنية بلغة بايثون.",
-            downloadBtn: "تحميل المشروع",
+            downloadBtn: "تحميل مجاني",
+            tryOnlineBtn: "جرب في الموقع",
             detailsBtn: "عرض التفاصيل",
+            paidProjectTitle: "تطبيق مكتبي متكامل",
+            paidProjectDesc: "برنامج متقدم وعالي الأداء تم تطويره بلغة بايثون مع واجهة عصرية ورائعة ورربط مع قواعد البيانات.",
+            orderWhatsappBtn: "اطلب النسخة الكاملة - واتساب",
             contactTitle: "تواصل معي",
             footerText: "أواب. جميع الحقوق محفوظة.",
             modalTitle: "تفاصيل: OAP Calc",
@@ -45,7 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
             uiLabel: "الواجهة:",
             featuresLabel: "المميزات:",
             featuresVal: "تصميم مظلم، أيقونة مخصصة، سرعة استجابة",
-            downloadMsg: "جارٍ تحضير رابط تحميل "
+            downloadMsg: "جارٍ تحضير رابط تحميل ",
+            calcModalTitle: "حاسبة OAP مباشرة"
         }
     };
 
@@ -139,4 +153,66 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Interactive Calculator Logic
+    const calcDisplay = document.getElementById('calc-display');
+    const calcButtons = document.querySelectorAll('.calc-btn');
+
+    if (calcDisplay && calcButtons.length > 0) {
+        let currentInput = '0';
+        let shouldResetDisplay = false;
+
+        function updateDisplay() {
+            calcDisplay.value = currentInput;
+        }
+
+        calcButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const action = button.getAttribute('data-action');
+                const value = button.getAttribute('data-value');
+
+                if (action === 'clear') {
+                    currentInput = '0';
+                    shouldResetDisplay = false;
+                } else if (action === 'delete') {
+                    if (currentInput.length > 1) {
+                        currentInput = currentInput.slice(0, -1);
+                    } else {
+                        currentInput = '0';
+                    }
+                } else if (action === 'calculate') {
+                    try {
+                        // Replace display symbols if any with JavaScript math operators
+                        const expression = currentInput.replace(/×/g, '*').replace(/÷/g, '/');
+                        // Evaluate expression safely
+                        const result = Function(`'use strict'; return (${expression})`)();
+                        currentInput = String(Number.isFinite(result) ? result : 'Error');
+                    } catch (err) {
+                        currentInput = 'Error';
+                    }
+                    shouldResetDisplay = true;
+                } else if (value) {
+                    const isOperator = ['+', '-', '*', '/', '×', '÷'].includes(value);
+
+                    if (currentInput === '0' || currentInput === 'Error' || shouldResetDisplay) {
+                        if (isOperator && currentInput !== 'Error') {
+                            currentInput += value;
+                        } else {
+                            currentInput = value;
+                        }
+                        shouldResetDisplay = false;
+                    } else {
+                        // Prevent consecutive operators
+                        const lastChar = currentInput.slice(-1);
+                        if (isOperator && ['+', '-', '*', '/', '×', '÷'].includes(lastChar)) {
+                            currentInput = currentInput.slice(0, -1) + value;
+                        } else {
+                            currentInput += value;
+                        }
+                    }
+                }
+                updateDisplay();
+            });
+        });
+    }
 });
