@@ -355,73 +355,54 @@ body {
 /* Interactive Calculator Styling */
 .calc-modal-content {
     max-width: 480px;
+    background: #0d0d1a;
 }
-
 .calc-app {
     margin-top: 15px;
-    background: #151d2a;
-    padding: 15px;
+    background: #12121f;
+    padding: 16px;
     border-radius: 12px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #2a2a3d;
 }
-
 .calc-display {
     width: 100%;
-    height: 50px;
-    background: #0b111e;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+    height: 55px;
+    background: #000000;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-align: right;
     padding: 0 15px;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     font-family: monospace;
     outline: none;
+    box-sizing: border-box;
 }
-
 .calc-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 8px;
 }
-
 .calc-btn {
-    height: 48px;
-    background: var(--bg-card-hover);
-    color: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+    height: 52px;
+    border: 1px solid #2a2a3d;
+    border-radius: 4px;
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: var(--transition);
+    transition: 0.15s;
 }
-
-.calc-btn:hover {
-    background: #475569;
-}
-
-.calc-btn:active {
-    transform: scale(0.95);
-}
-
-.calc-btn-op {
-    background: rgba(99, 102, 241, 0.2);
-    color: #a855f7;
-}
-
-.calc-btn-op:hover {
-    background: rgba(99, 102, 241, 0.4);
-}
-
-.calc-btn-equals {
-    background: var(--primary-gradient);
-}
-
-.calc-btn-zero {
-    grid-column: span 1;
-}
+.calc-btn:hover { filter: brightness(1.1); }
+.calc-btn:active { transform: scale(0.96); }
+.calc-btn-peach { background: #ffc79e; color: #1a1a1a; }
+.calc-btn-pink { background: #ff8aa6; color: #1a1a1a; }
+.calc-btn-dark { background: #23233a; color: #fff; }
+.calc-btn-blue { background: #7ab3ff; color: #1a1a1a; }
+.calc-btn-op { background: #ffc79e; color: #1a1a1a; }
+.calc-btn-equals { background: #7ab3ff; color: #1a1a1a; }
+.calc-btn-zero { grid-column: span 3; }
+.calc-btn-dot { grid-column: span 3; }
 
 /* Footer */
 .footer {

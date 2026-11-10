@@ -204,6 +204,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         currentInput = String(Math.tan(val * (Math.PI / 180)));
                     } catch { currentInput = 'Error'; }
                     shouldResetDisplay = true;
+                } else if (action === 'negate') {
+                    if (currentInput !== '0' && currentInput !== 'Error') {
+                        if (currentInput.startsWith('-')) currentInput = currentInput.slice(1);
+                        else currentInput = '-' + currentInput;
+                    }
+                } else if (action === 'percent') {
+                    try {
+                        const val = parseFloat(currentInput);
+                        currentInput = String(val / 100);
+                    } catch { currentInput = 'Error'; }
+                    shouldResetDisplay = true;
                 } else if (action === 'calculate') {
                     try {
                         // Replace display symbols with JS math operators
